@@ -6,7 +6,7 @@
 /*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 18:15:47 by aalamino          #+#    #+#             */
-/*   Updated: 2024/02/11 18:16:24 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/02/21 18:16:54 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,18 @@ int	ft_atoi(const char *str)
 		++i;
 	}
 	return (num * neg);
+}
+
+int	is_sort(t_list **stack)
+{
+	t_list *element;
+
+	element = *stack;
+	while (element->next != NULL)
+	{
+		if (element->valor > element->next->valor)
+			return (-1);
+		element = element->next;
+	}
+	return (0);
 }

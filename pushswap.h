@@ -6,7 +6,7 @@
 /*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:00:51 by aalamino          #+#    #+#             */
-/*   Updated: 2024/02/11 18:57:50 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/02/21 17:53:09 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	rrb(t_list **stack_b);
 int rrr(t_list **stack_a, t_list **stack_b);
 
 t_list	**create_stack_a(int argc, char **argv);
+int	is_sort(t_list **stack);
+void  sort(t_list **stack_a, t_list **stack_b, int argc);
 
 t_list	*ft_lstnew(int valor);
 void	ft_lstadd_front(t_list **lst, t_list *nuevo);
