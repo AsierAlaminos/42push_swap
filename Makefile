@@ -13,7 +13,7 @@
 NAME = push_swap
 CCFLAGS = -Wall -Wextra -Werror
 
-FILES   = push_swap.c push.c swap.c rotate.c reverse.c lists.c push_swap_utils.c ft_split.c
+FILES   = push_swap.c push.c swap.c rotate.c reverse.c lists.c push_swap_utils.c ft_split.c sort_low_stack.c stack_utils.c
 
 OBJS = $(FILES:.c=.o)
 

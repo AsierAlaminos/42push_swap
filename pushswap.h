@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct s_list
 {
@@ -21,28 +22,28 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int	swap(t_list **stack);
-int sa(t_list **stack_a);
-int sb(t_list **stack_b);
-int	ss(t_list **stack_a, t_list **stack_b);
+int		swap(t_list **stack);
+int		sa(t_list **stack_a);
+int		sb(t_list **stack_b);
+int		ss(t_list **stack_a, t_list **stack_b);
 
-int	push(t_list **stack_f, t_list **stack_t);
-int	pa(t_list **stack_a, t_list **stack_b);
-int	pb(t_list **stack_a, t_list **stack_b);
+int		push(t_list **stack_f, t_list **stack_t);
+int		pa(t_list **stack_a, t_list **stack_b);
+int		pb(t_list **stack_a, t_list **stack_b);
 
-int	rotate(t_list **stack);
-int	ra(t_list **stack_a);
-int	rb(t_list **stack_b);
-int	rr(t_list **stack_a, t_list **stack_b);
+int		rotate(t_list **stack);
+int		ra(t_list **stack_a);
+int		rb(t_list **stack_b);
+int		rr(t_list **stack_a, t_list **stack_b);
 
-int	reverse(t_list **stack);
-int	rra(t_list **stack_a);
-int	rrb(t_list **stack_b);
-int rrr(t_list **stack_a, t_list **stack_b);
+int		reverse(t_list **stack);
+int		rra(t_list **stack_a);
+int		rrb(t_list **stack_b);
+int		rrr(t_list **stack_a, t_list **stack_b);
 
 t_list	**create_stack_a(int argc, char **argv);
-int	is_sort(t_list **stack);
-void  sort(t_list **stack_a, t_list **stack_b, int argc);
+int		is_sort(t_list **stack);
+void	sort(t_list **stack_a, t_list **stack_b, int argc);
 
 t_list	*ft_lstnew(int valor);
 void	ft_lstadd_front(t_list **lst, t_list *nuevo);
@@ -50,12 +51,27 @@ int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *nuevo);
 
-int	del_count(char const *s, char c);
-int	str_count(char const *s, char c, int i);
+int		del_count(char const *s, char c);
+int		str_count(char const *s, char c, int i);
 char	**liberar(char **arr, int arr_len);
 char	**add_str(char const *s, char **arr, int arr_len, char c);
 char	**ft_split(char const *s, char c);
 
-int	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
+
+void	sort_three(t_list **stack_a);
+void	sort_five(t_list **stack_a, t_list **stack_b);
+
+int		num_pos(t_list **stack, int num);
+int		size_stack(t_list **stack);
+void	ra_x_times(t_list **stack, int times);
+void	rra_x_times(t_list **stack, int times);
+int	get_pos(t_list **stack_a, t_list **stack_b);
+int	bigger_elem(t_list **stack);
+int	smallest_elem(t_list **stack);
+void	choose_dir(t_list **stack, int pos);
+void	sort_for_elem(t_list **stack_a);
+
+void  print_list(t_list **stack_a, t_list **stack_b);
 
 #endif

@@ -41,11 +41,13 @@ int	push(t_list **stack_f, t_list **stack_t)
 int	pa(t_list **stack_a, t_list **stack_b)
 {
 	push(stack_b, stack_a);
+	write(1, "pa\n", 3);
 	return (0);
 }
 
 int	pb(t_list **stack_a, t_list **stack_b)
 {
 	push(stack_a, stack_b);
+	write(1, "pb\n", 3);
 	return (0);
 }

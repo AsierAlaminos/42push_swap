@@ -26,7 +26,12 @@ int	is_sorted(t_list **stack)
 	return (0);
 }
 
-void  sort(t_list **stack_a, t_list **stack_b)
+int	sort_list(t_list **stack_a, t_list **stack_b, int argc)
 {
-
+	if (argc == 4)
+		return (1);
+	//if (argc == 7)
+		//return (1);
+	//return algoritmo();
+	return (0);
 }

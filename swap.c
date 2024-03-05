@@ -14,19 +14,14 @@
 
 int	swap(t_list **stack)
 {
-	t_list	*actual;
-	t_list	*siguiente;
 	t_list	*tmp;
 
 	if (ft_lstsize(*stack) == 0)
 		return (-1);
-	actual = *stack;
-	siguiente = actual->next;
-	tmp = actual;
-	actual->next = siguiente->next;
-	actual->valor = siguiente->valor;
-	siguiente->next = tmp->next;
-	siguiente->valor = tmp->valor;
+	tmp = *stack;
+	*stack = (*stack)->next;
+	tmp->next = (*stack)->next;
+	(*stack)->next = tmp;
 	return (0);
 }
 
