@@ -12,6 +12,17 @@
 
 #include "pushswap.h"
 
+void	sort_two(t_list **stack_a)
+{
+	t_list	*number1;
+	t_list	*number2;
+
+	number1 = *stack_a;
+	number2 = number1->next;
+	if (number1->valor > number2->valor)
+		sa(stack_a);
+}
+
 void	sort_three(t_list **stack_a)
 {
 	int		element1;
@@ -41,6 +52,19 @@ void	sort_three(t_list **stack_a)
 		rra(stack_a);
 }
 
+void	sort_four(t_list **stack_a, t_list **stack_b)
+{
+	int	item_pos;
+
+	pb(stack_a, stack_b);
+	sort_three(stack_a);
+	item_pos = get_pos(stack_a, stack_b);
+	choose_dir(stack_a, item_pos);
+	pa(stack_a, stack_b);
+	item_pos = num_pos(stack_a, smallest_elem(stack_a));
+	choose_dir(stack_a, item_pos);
+}
+
 void	sort_five(t_list **stack_a, t_list **stack_b)
 {
 	int		item_pos;
@@ -50,11 +74,10 @@ void	sort_five(t_list **stack_a, t_list **stack_b)
 	sort_three(stack_a);
 	while (*stack_b)
 	{
-		if (is_sort(stack_a) == -1)
-		{
-			item_pos = get_pos(stack_a, stack_b);
-			choose_dir(stack_a, item_pos);
-		}
+		item_pos = num_pos(stack_a, smallest_elem(stack_a));
+		choose_dir(stack_a, item_pos);
+		item_pos = get_pos(stack_a, stack_b);
+		choose_dir(stack_a, item_pos);
 		pa(stack_a, stack_b);
 	}
 	item_pos = num_pos(stack_a, smallest_elem(stack_a));
@@ -66,9 +89,8 @@ void	choose_dir(t_list **stack, int pos)
 	int	stack_size;
 
 	stack_size = size_stack(stack);
-	printf("pos -> %d / size -> %d\n", pos, stack_size);
 	if (pos <= stack_size / 2)
 		ra_x_times(stack, pos);
 	else
-		rra_x_times(stack, pos);
+		rra_x_times(stack, stack_size - pos);
 }

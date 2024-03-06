@@ -19,6 +19,7 @@
 typedef struct s_list
 {
 	int				valor;
+	int				id;
 	struct s_list	*next;
 }					t_list;
 
@@ -56,8 +57,9 @@ int		str_count(char const *s, char c, int i);
 char	**liberar(char **arr, int arr_len);
 char	**add_str(char const *s, char **arr, int arr_len, char c);
 char	**ft_split(char const *s, char c);
-
 int		ft_atoi(const char *str);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+size_t	ft_strlen(const char *s);
 
 void	sort_three(t_list **stack_a);
 void	sort_five(t_list **stack_a, t_list **stack_b);
@@ -71,6 +73,14 @@ int	bigger_elem(t_list **stack);
 int	smallest_elem(t_list **stack);
 void	choose_dir(t_list **stack, int pos);
 void	sort_for_elem(t_list **stack_a);
+void	sort_two(t_list **stack_a);
+void	choose_sort(int argc, t_list **stack_a, t_list **stack_b);
+void	sort_four(t_list **stack_a, t_list **stack_b);
+int	check_errors(char **argv);
+int	check_numbers(char **nums);
+void	sort_list(t_list **stack);
+t_list	*get_element(t_list **stack, int valor);
+t_list	*get_smallest(t_list **stack, int min_elem);
 
 void  print_list(t_list **stack_a, t_list **stack_b);
 

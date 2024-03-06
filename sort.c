@@ -26,12 +26,59 @@ int	is_sorted(t_list **stack)
 	return (0);
 }
 
-int	sort_list(t_list **stack_a, t_list **stack_b, int argc)
+void	sort_list(t_list **stack)
 {
-	if (argc == 4)
-		return (1);
-	//if (argc == 7)
-		//return (1);
-	//return algoritmo();
-	return (0);
+	int		min;
+	int		i;
+	t_list	*element;
+	t_list	*min_elem;
+
+	i = 2; //puede que sea en 0
+	min = smallest_elem(stack);
+	element = *stack;
+	min_elem = get_element(stack, min);
+	min_elem->id = 1;
+	//printf("min -> %d\n\n", min);
+	while (element->next)
+	{
+		min_elem = get_smallest(stack, min);
+		min_elem->id = i;
+		min = min_elem->valor;
+		element = element->next;
+		//printf("min: %d / id: %d\n", min_elem->valor, min_elem->id);
+		i++;
+	}
+}
+
+t_list	*get_element(t_list **stack, int valor)
+{
+	t_list	*element;
+
+	element = *stack;
+	while (element)
+	{
+		if (element->valor == valor)
+			return (element);
+		element = element->next;
+	}
+	return (NULL);
+}
+
+t_list	*get_smallest(t_list **stack, int min)
+{
+	t_list	*element;
+	t_list	*min_element;
+
+	element = *stack;
+	min_element = *stack;
+	while (min_element && min_element->valor <= min)
+		min_element = min_element->next;
+	while (element)
+	{
+		if (element->valor < min_element->valor
+			&& element->valor > min)
+			min_element = element;
+		element = element->next;
+	}
+	return (min_element);
 }

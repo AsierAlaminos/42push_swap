@@ -14,25 +14,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-t_list	**create_stack_a(int argc, char **argv)
-{
-	t_list	**stack;
-	char	**numbers;
-	int		i;
-
-	stack = (t_list **)malloc(sizeof(t_list));
-	numbers = argv;
-	i = 1;
-	if (argc == 2)
-	{
-		numbers = ft_split(argv[1], ' ');
-		--i;
-	}
-	while (i < argc)
-		ft_lstadd_back(stack, ft_lstnew(ft_atoi(numbers[i++])));
-	return (stack);
-}
-
 void  print_list(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*number;
@@ -41,35 +22,43 @@ void  print_list(t_list **stack_a, t_list **stack_b)
 	printf("\nstack_a:\n");
 	while (number)
 	{
-		printf("num: %d\n", number->valor);
+		printf("num: %d / id: %d\n", number->valor, number->id);
 		number = number->next;
 	}
 	number = *stack_b;
 	printf("\nstack_b:\n");
 	while (number)
 	{
-		printf("num: %d\n", number->valor);
+		printf("num: %d / id: %d\n", number->valor, number->id);
 		number = number->next;
 	}
 	printf("\n");
+}
+
+void	choose_sort(int argc, t_list **stack_a, t_list **stack_b)
+{
+	if (argc == 3)
+		sort_two(stack_a);
+	if (argc == 4)
+		sort_three(stack_a);
+	if (argc == 5)
+		sort_four(stack_a, stack_b);
+	if (argc == 6)
+		sort_five(stack_a, stack_b);
 }
 
 int main(int argc, char **argv)
 {
 	t_list	**stack_a;
 	t_list	**stack_b;
-	t_list	*number;
 
 	if (argc <= 1)
 		exit(1);
 	stack_a = create_stack_a(argc, argv);
 	stack_b = (t_list **)malloc(sizeof(t_list));
-	number = *stack_a;
-	if (argc == 4)
-		sort_three(stack_a);
-	if (argc == 6)
-		sort_five(stack_a, stack_b);
-	printf("is_sort-> %d\n", is_sort(stack_a));
+	sort_list(stack_a);
+	choose_sort(argc, stack_a, stack_b);
+	printf("\nis_sort-> %d\n", is_sort(stack_a));
 	print_list(stack_a, stack_b);
 	return (0);
 }
