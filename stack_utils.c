@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aalamino <aalamino@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 15:45:28 by aalamino          #+#    #+#             */
-/*   Updated: 2024/03/05 15:45:29 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/03/10 14:48:33 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

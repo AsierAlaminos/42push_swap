@@ -6,7 +6,7 @@
 /*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:21:03 by aalamino          #+#    #+#             */
-/*   Updated: 2024/02/15 17:46:51 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/03/10 14:39:25 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,12 @@ void	sort_list(t_list **stack)
 	element = *stack;
 	min_elem = get_element(stack, min);
 	min_elem->id = 1;
-	//printf("min -> %d\n\n", min);
 	while (element->next)
 	{
 		min_elem = get_smallest(stack, min);
 		min_elem->id = i;
 		min = min_elem->valor;
 		element = element->next;
-		//printf("min: %d / id: %d\n", min_elem->valor, min_elem->id);
 		i++;
 	}
 }

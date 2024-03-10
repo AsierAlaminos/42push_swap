@@ -6,7 +6,7 @@
 /*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:00:51 by aalamino          #+#    #+#             */
-/*   Updated: 2024/02/21 17:53:09 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/03/10 15:05:46 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ int	check_numbers(char **nums);
 void	sort_list(t_list **stack);
 t_list	*get_element(t_list **stack, int valor);
 t_list	*get_smallest(t_list **stack, int min_elem);
+void  close_program();
+void  radix_sort(t_list **stack_a, t_list **stack_b);
+int	max_bits(t_list **stack);
 
 void  print_list(t_list **stack_a, t_list **stack_b);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aalamino <aalamino@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:15:47 by aalamino          #+#    #+#             */
-/*   Updated: 2024/03/06 14:15:48 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/03/10 14:37:48 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ t_list	**create_stack_a(int argc, char **argv)
 	}
 	if (check_errors(numbers) == -1 || check_numbers(numbers) == -1)
 	{
-		write(1, "Error\n", 6);
-		exit(0);
+		close_program();
 	}
 	while (i < argc)
 		ft_lstadd_back(stack, ft_lstnew(ft_atoi(numbers[i++])));

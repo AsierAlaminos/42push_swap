@@ -6,7 +6,7 @@
 /*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:57:11 by aalamino          #+#    #+#             */
-/*   Updated: 2024/02/21 18:16:42 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/03/10 15:06:06 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ void  print_list(t_list **stack_a, t_list **stack_b)
 	printf("\n");
 }
 
+void  close_program()
+{
+	write(1, "Error\n", 6);
+	exit(0);
+}
+
 void	choose_sort(int argc, t_list **stack_a, t_list **stack_b)
 {
 	if (argc == 3)
@@ -45,6 +51,8 @@ void	choose_sort(int argc, t_list **stack_a, t_list **stack_b)
 		sort_four(stack_a, stack_b);
 	if (argc == 6)
 		sort_five(stack_a, stack_b);
+	if (argc > 6)
+		radix_sort(stack_a, stack_b);
 }
 
 int main(int argc, char **argv)
@@ -53,7 +61,7 @@ int main(int argc, char **argv)
 	t_list	**stack_b;
 
 	if (argc <= 1)
-		exit(1);
+		close_program();
 	stack_a = create_stack_a(argc, argv);
 	stack_b = (t_list **)malloc(sizeof(t_list));
 	sort_list(stack_a);
