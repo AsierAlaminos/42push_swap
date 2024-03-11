@@ -6,17 +6,17 @@
 /*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 18:15:47 by aalamino          #+#    #+#             */
-/*   Updated: 2024/02/21 18:16:54 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:16:47 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int	i;
-	int	num;
-	int	neg;
+	int			i;
+	long int	num;
+	int			neg;
 
 	i = 0;
 	neg = 1;

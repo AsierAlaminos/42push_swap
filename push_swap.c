@@ -6,7 +6,7 @@
 /*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:57:11 by aalamino          #+#    #+#             */
-/*   Updated: 2024/03/10 15:06:06 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:10:33 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,21 @@ void  print_list(t_list **stack_a, t_list **stack_b)
 
 void  close_program()
 {
-	write(1, "Error\n", 6);
-	exit(0);
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
+void  free_stack(t_list **stack)
+{
+	t_list	*next;
+
+	while (*stack)
+	{
+		next = (*stack)->next;
+		free(*stack);
+		*stack = next;
+	}
+	*stack = NULL;
 }
 
 void	choose_sort(int argc, t_list **stack_a, t_list **stack_b)
@@ -64,11 +77,12 @@ int main(int argc, char **argv)
 
 	if (argc <= 1)
 		close_program();
-	stack_a = create_stack_a(argc, argv);
 	stack_b = (t_list **)malloc(sizeof(t_list));
+	stack_a = (t_list **)malloc(sizeof(t_list));
+	stack_a = create_stack_a(argc, argv, stack_a, stack_b);
 	sort_list(stack_a);
 	choose_sort(argc, stack_a, stack_b);
-	//printf("\nis_sort-> %d\n", is_sort(stack_a));
-	//print_list(stack_a, stack_b);
+	free_stack(stack_a);
+	free_stack(stack_b);
 	return (0);
 }

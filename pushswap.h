@@ -6,7 +6,7 @@
 /*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 20:00:51 by aalamino          #+#    #+#             */
-/*   Updated: 2024/03/10 15:05:46 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:17:00 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		rra(t_list **stack_a);
 int		rrb(t_list **stack_b);
 int		rrr(t_list **stack_a, t_list **stack_b);
 
-t_list	**create_stack_a(int argc, char **argv);
+t_list	**create_stack_a(int argc, char **argv, t_list **sa, t_list **sb);
 int		is_sort(t_list **stack);
 void	sort(t_list **stack_a, t_list **stack_b, int argc);
 
@@ -57,7 +57,7 @@ int		str_count(char const *s, char c, int i);
 char	**liberar(char **arr, int arr_len);
 char	**add_str(char const *s, char **arr, int arr_len, char c);
 char	**ft_split(char const *s, char c);
-int		ft_atoi(const char *str);
+long int		ft_atoi(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
 
@@ -85,6 +85,7 @@ void  close_program();
 void  radix_sort(t_list **stack_a, t_list **stack_b);
 int	max_bits(t_list **stack);
 int	arg_lenght(char **numbers);
+void  free_stack(t_list **stack);
 
 void  print_list(t_list **stack_a, t_list **stack_b);
 

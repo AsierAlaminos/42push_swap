@@ -6,7 +6,7 @@
 /*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:15:47 by aalamino          #+#    #+#             */
-/*   Updated: 2024/03/10 14:37:48 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:38:01 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-t_list	**create_stack_a(int argc, char **argv)
+t_list	**create_stack_a(int argc, char **argv, t_list **sa, t_list **sb)
 {
 	t_list	**stack;
 	char	**numbers;
@@ -31,6 +31,8 @@ t_list	**create_stack_a(int argc, char **argv)
 	}
 	if (check_errors(numbers) == -1 || check_numbers(numbers) == -1)
 	{
+		free_stack(sa);
+		free_stack(sb);
 		close_program();
 	}
 	while (i < argc)
@@ -49,8 +51,11 @@ int	check_errors(char **nums)
 		j = 0;
 		while (nums[i][j] != '\0')
 		{
+			printf("s->%s\n", nums[i]);
 			if ((nums[i][j] < '0' || nums[i][j] > '9') && nums[i][j] != ' '
 				&& nums[i][j] != '-')
+				return (-1);
+			if (nums[i][j] == '-' && nums[i][j + 1] == '-')
 				return (-1);
 			++j;
 		}
@@ -67,14 +72,13 @@ int	check_numbers(char **nums)
 	i = 0;
 	while (nums[i] != NULL)
 	{
+		if (ft_atoi(nums[i]) < -2147483648 || ft_atoi(nums[i]) > 2147483647)
+			return (-1);
 		j = i + 1;
 		while (nums[j] != NULL)
 		{
 			if (ft_atoi(nums[i]) - ft_atoi(nums[j]) == 0)
-			{
-				//printf("num_rep -> %s / pos -> %d / pos -> %d\n", nums[i], i, j);
 				return (-1);
-			}
 			j++;
 		}
 		i++;
