@@ -43,6 +43,8 @@ void  close_program()
 
 void	choose_sort(int argc, t_list **stack_a, t_list **stack_b)
 {
+	if (argc == 2)
+		argc = size_stack(stack_a) + 1;
 	if (argc == 3)
 		sort_two(stack_a);
 	if (argc == 4)
@@ -66,7 +68,7 @@ int main(int argc, char **argv)
 	stack_b = (t_list **)malloc(sizeof(t_list));
 	sort_list(stack_a);
 	choose_sort(argc, stack_a, stack_b);
-	printf("\nis_sort-> %d\n", is_sort(stack_a));
-	print_list(stack_a, stack_b);
+	//printf("\nis_sort-> %d\n", is_sort(stack_a));
+	//print_list(stack_a, stack_b);
 	return (0);
 }

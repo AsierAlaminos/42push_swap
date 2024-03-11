@@ -27,6 +27,7 @@ t_list	**create_stack_a(int argc, char **argv)
 	{
 		numbers = ft_split(argv[1], ' ');
 		--i;
+		argc = arg_lenght(numbers);
 	}
 	if (check_errors(numbers) == -1 || check_numbers(numbers) == -1)
 	{
@@ -69,11 +70,24 @@ int	check_numbers(char **nums)
 		j = i + 1;
 		while (nums[j] != NULL)
 		{
-			if (ft_strncmp(nums[i], nums[j], ft_strlen(nums[i])) == 0)
+			if (ft_atoi(nums[i]) - ft_atoi(nums[j]) == 0)
+			{
+				printf("num_rep -> %s / pos -> %d / pos -> %d\n", nums[i], i, j);
 				return (-1);
+			}
 			j++;
 		}
 		i++;
 	}
 	return (0);
+}
+
+int	arg_lenght(char **numbers)
+{
+	int	i;
+
+	i = 0;
+	while (numbers[i] != NULL)
+		i++;
+	return (i);
 }
