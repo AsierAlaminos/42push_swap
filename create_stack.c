@@ -72,7 +72,7 @@ int	check_numbers(char **nums)
 		{
 			if (ft_atoi(nums[i]) - ft_atoi(nums[j]) == 0)
 			{
-				printf("num_rep -> %s / pos -> %d / pos -> %d\n", nums[i], i, j);
+				//printf("num_rep -> %s / pos -> %d / pos -> %d\n", nums[i], i, j);
 				return (-1);
 			}
 			j++;
