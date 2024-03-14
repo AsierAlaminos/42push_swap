@@ -41,19 +41,6 @@ void  close_program()
 	exit(1);
 }
 
-void  free_stack(t_list **stack)
-{
-	t_list	*next;
-
-	while (*stack)
-	{
-		next = (*stack)->next;
-		free(*stack);
-		*stack = next;
-	}
-	*stack = NULL;
-}
-
 void	choose_sort(int argc, t_list **stack_a, t_list **stack_b)
 {
 	if (argc == 2)
@@ -77,8 +64,8 @@ int main(int argc, char **argv)
 
 	if (argc <= 1)
 		close_program();
-	stack_b = (t_list **)malloc(sizeof(t_list));
-	stack_a = (t_list **)malloc(sizeof(t_list));
+	stack_b = (t_list **)malloc(sizeof(t_list *));
+	stack_a = NULL;
 	stack_a = create_stack_a(argc, argv, stack_a, stack_b);
 	sort_list(stack_a);
 	choose_sort(argc, stack_a, stack_b);

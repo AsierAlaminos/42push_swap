@@ -12,8 +12,9 @@
 
 NAME = push_swap
 CCFLAGS = -Wall -Wextra -Werror
+FSANITIZE = -fsanitize=address
 
-FILES   = push_swap.c push.c swap.c rotate.c reverse.c lists.c push_swap_utils.c ft_split.c sort_low_stack.c stack_utils.c create_stack.c ft_strncmp.c ft_strlen.c sort.c radix.c
+FILES   = push_swap.c push.c swap.c rotate.c reverse.c lists.c push_swap_utils.c ft_split.c sort_low_stack.c stack_utils.c create_stack.c ft_strncmp.c ft_strlen.c sort.c radix.c free_utils.c
 
 OBJS = $(FILES:.c=.o)
 
@@ -30,6 +31,9 @@ $(NAME): $(OBJS)
 clean:
 	rm -f $(OBJS)
 
+sanitize: fclean
+	cc $(CCFLAGS) $(FSANITIZE) $(FILES) -o $(NAME)
+	
 fclean: clean
 	rm -f $(NAME)
 

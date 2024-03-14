@@ -86,6 +86,7 @@ void  radix_sort(t_list **stack_a, t_list **stack_b);
 int	max_bits(t_list **stack);
 int	arg_lenght(char **numbers);
 void  free_stack(t_list **stack);
+void	free_numbers(char **numbers, int len);
 
 void  print_list(t_list **stack_a, t_list **stack_b);
 

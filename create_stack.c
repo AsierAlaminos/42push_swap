@@ -20,7 +20,6 @@ t_list	**create_stack_a(int argc, char **argv, t_list **sa, t_list **sb)
 	char	**numbers;
 	int		i;
 
-	stack = (t_list **)malloc(sizeof(t_list));
 	numbers = argv;
 	i = 1;
 	if (argc == 2)
@@ -35,6 +34,8 @@ t_list	**create_stack_a(int argc, char **argv, t_list **sa, t_list **sb)
 		free_stack(sb);
 		close_program();
 	}
+	stack = (t_list **)malloc(sizeof(t_list *));
+	*stack = ft_lstnew(ft_atoi(numbers[i++]));
 	while (i < argc)
 		ft_lstadd_back(stack, ft_lstnew(ft_atoi(numbers[i++])));
 	return (stack);
@@ -51,7 +52,6 @@ int	check_errors(char **nums)
 		j = 0;
 		while (nums[i][j] != '\0')
 		{
-			printf("s->%s\n", nums[i]);
 			if ((nums[i][j] < '0' || nums[i][j] > '9') && nums[i][j] != ' '
 				&& nums[i][j] != '-')
 				return (-1);
