@@ -42,7 +42,7 @@ int		rra(t_list **stack_a);
 int		rrb(t_list **stack_b);
 int		rrr(t_list **stack_a, t_list **stack_b);
 
-t_list	**create_stack_a(int argc, char **argv, t_list **sa, t_list **sb);
+t_list	**create_stack_a(int argc, char **argv, t_list **sb);
 int		is_sort(t_list **stack);
 void	sort(t_list **stack_a, t_list **stack_b, int argc);
 
@@ -76,12 +76,12 @@ void	sort_for_elem(t_list **stack_a);
 void	sort_two(t_list **stack_a);
 void	choose_sort(int argc, t_list **stack_a, t_list **stack_b);
 void	sort_four(t_list **stack_a, t_list **stack_b);
-int	check_errors(char **argv);
-int	check_numbers(char **nums);
+int	check_errors(char **argv, int i);
+int	check_numbers(char **nums, int i);
 void	sort_list(t_list **stack);
 t_list	*get_element(t_list **stack, int valor);
 t_list	*get_smallest(t_list **stack, int min_elem);
-void  close_program();
+void  close_program(t_list **stack_a, t_list **stack_b);
 void  radix_sort(t_list **stack_a, t_list **stack_b);
 int	max_bits(t_list **stack);
 int	arg_lenght(char **numbers);

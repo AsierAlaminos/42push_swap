@@ -40,15 +40,6 @@ int	push(t_list **stack_f, t_list **stack_t)
 
 int	pa(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*element;
-	//print_list(stack_a, stack_b);
-	//printf("size -> %d\n", ft_lstsize(*stack_b));
-	element = *stack_b;
-	while (element->next != NULL)
-	{
-		printf("element-> %d\n", element->valor);
-		element = element->next;
-	}
 	push(stack_b, stack_a);
 	write(1, "pa\n", 3);
 	return (0);

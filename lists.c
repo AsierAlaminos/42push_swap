@@ -40,7 +40,6 @@ int	ft_lstsize(t_list *lst)
 	i = 0;
 	while (lst != NULL)
 	{
-		printf("i-> %d\n", i);
 		++i;
 		lst = lst->next;
 	}

@@ -33,7 +33,7 @@ void	sort_list(t_list **stack)
 	t_list	*element;
 	t_list	*min_elem;
 
-	i = 2; //puede que sea en 0
+	i = 2;
 	min = smallest_elem(stack);
 	element = *stack;
 	min_elem = get_element(stack, min);

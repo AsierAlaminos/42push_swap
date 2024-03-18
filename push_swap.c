@@ -35,8 +35,12 @@ void  print_list(t_list **stack_a, t_list **stack_b)
 	printf("\n");
 }
 
-void  close_program()
+void  close_program(t_list **stack_a, t_list **stack_b)
 {
+	if (stack_a != NULL)
+		free_stack(stack_a);
+	if (stack_b != NULL)
+		free_stack(stack_b);
 	write(2, "Error\n", 6);
 	exit(1);
 }
@@ -63,10 +67,9 @@ int main(int argc, char **argv)
 	t_list	**stack_b;
 
 	if (argc <= 1)
-		close_program();
+		close_program(NULL, NULL);
 	stack_b = (t_list **)malloc(sizeof(t_list *));
-	stack_a = NULL;
-	stack_a = create_stack_a(argc, argv, stack_a, stack_b);
+	stack_a = create_stack_a(argc, argv, stack_b);
 	sort_list(stack_a);
 	choose_sort(argc, stack_a, stack_b);
 	free_stack(stack_a);

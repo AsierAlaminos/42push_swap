@@ -14,39 +14,48 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-t_list	**create_stack_a(int argc, char **argv, t_list **sa, t_list **sb)
+t_list	**create_stack_a(int argc, char **argv, t_list **sb)
 {
 	t_list	**stack;
 	char	**numbers;
 	int		i;
+	int		j;
+	char	**arg;
 
 	numbers = argv;
 	i = 1;
-	if (argc == 2)
+	stack = (t_list **)malloc(sizeof(t_list *));
+	while (i < argc)
+	{
+		arg = ft_split(argv[i], ' ');
+		if (check_errors(arg, i) == -1)
+			close_program(NULL, sb);
+		j = 0;
+		while (arg[j] != NULL)
+			ft_lstadd_back(stack, ft_lstnew(ft_atoi(arg[j++])));
+		i++;
+	}
+	/*if (argc == 2)
 	{
 		numbers = ft_split(argv[1], ' ');
 		--i;
 		argc = arg_lenght(numbers);
 	}
-	if (check_errors(numbers) == -1 || check_numbers(numbers) == -1)
+	if (check_errors(numbers, i) == -1 || check_numbers(numbers, i) == -1)
 	{
-		free_stack(sa);
 		free_stack(sb);
-		close_program();
+		close_program(NULL, sb);
 	}
-	stack = (t_list **)malloc(sizeof(t_list *));
 	*stack = ft_lstnew(ft_atoi(numbers[i++]));
 	while (i < argc)
-		ft_lstadd_back(stack, ft_lstnew(ft_atoi(numbers[i++])));
+		ft_lstadd_back(stack, ft_lstnew(ft_atoi(numbers[i++])));*/
 	return (stack);
 }
 
-int	check_errors(char **nums)
+int	check_errors(char **nums, int i)
 {
-	int		i;
 	int		j;
 
-	i = 1;
 	while (nums[i] != NULL)
 	{
 		j = 0;
@@ -55,7 +64,9 @@ int	check_errors(char **nums)
 			if ((nums[i][j] < '0' || nums[i][j] > '9') && nums[i][j] != ' '
 				&& nums[i][j] != '-')
 				return (-1);
-			if (nums[i][j] == '-' && nums[i][j + 1] == '-')
+			if ((nums[i][j] == '-' && nums[i][j + 1] == '-')
+				|| (nums[i][j] == '-'
+				&& (nums[i][j] < '0' || nums[i][j] > '9')))
 				return (-1);
 			++j;
 		}
@@ -64,12 +75,10 @@ int	check_errors(char **nums)
 	return (0);
 }
 
-int	check_numbers(char **nums)
+int	check_numbers(char **nums, int i)
 {
-	int	i;
 	int	j;
 
-	i = 0;
 	while (nums[i] != NULL)
 	{
 		if (ft_atoi(nums[i]) < -2147483648 || ft_atoi(nums[i]) > 2147483647)
