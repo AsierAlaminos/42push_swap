@@ -25,7 +25,7 @@ int	swap(t_list **stack)
 	return (0);
 }
 
-int sa(t_list **stack_a)
+int	sa(t_list **stack_a)
 {
 	if (swap(stack_a) == -1)
 		return (-1);

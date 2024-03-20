@@ -27,10 +27,10 @@ void	ft_lstadd_back(t_list **lst, t_list *nuevo)
 	(*lst)->next = NULL;
 }
 
-void    ft_lstadd_front(t_list **lst, t_list *nuevo)
+void	ft_lstadd_front(t_list **lst, t_list *nuevo)
 {
-        nuevo->next = *lst;
-        *lst = nuevo;
+	nuevo->next = *lst;
+	*lst = nuevo;
 }
 
 int	ft_lstsize(t_list *lst)
@@ -58,7 +58,7 @@ t_list	*ft_lstlast(t_list *lst)
 	return (p);
 }
 
-t_list	*ft_lstnew(int valor)
+t_list	*ft_lstnew(long int valor)
 {
 	t_list	*lista;
 

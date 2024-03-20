@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-void  radix_sort(t_list **stack_a, t_list **stack_b)
+void	radix_sort(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*element;
 	int		max;

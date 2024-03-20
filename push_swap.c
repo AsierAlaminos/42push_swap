@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void  print_list(t_list **stack_a, t_list **stack_b)
+void	print_list(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*number;
 
@@ -22,20 +22,20 @@ void  print_list(t_list **stack_a, t_list **stack_b)
 	printf("\nstack_a:\n");
 	while (number)
 	{
-		printf("num: %d / id: %d\n", number->valor, number->id);
+		printf("num: %ld / id: %d\n", number->valor, number->id);
 		number = number->next;
 	}
 	number = *stack_b;
 	printf("\nstack_b:\n");
 	while (number)
 	{
-		printf("num: %d / id: %d\n", number->valor, number->id);
+		printf("num: %ld / id: %d\n", number->valor, number->id);
 		number = number->next;
 	}
 	printf("\n");
 }
 
-void  close_program(t_list **stack_a, t_list **stack_b)
+void	close_program(t_list **stack_a, t_list **stack_b)
 {
 	if (stack_a != NULL)
 		free_stack(stack_a);
@@ -61,7 +61,7 @@ void	choose_sort(int argc, t_list **stack_a, t_list **stack_b)
 		radix_sort(stack_a, stack_b);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_list	**stack_a;
 	t_list	**stack_b;

@@ -44,12 +44,13 @@ int	size_stack(t_list **stack)
 
 int	get_pos(t_list **stack_a, t_list **stack_b)
 {
-	int	i;
+	int		i;
 	t_list	*element;
 
 	i = 0;
 	element = *stack_a;
-	if ((*stack_b)->valor > bigger_elem(stack_a) || (*stack_b)->valor < smallest_elem(stack_a))
+	if ((*stack_b)->valor > bigger_elem(stack_a)
+		|| (*stack_b)->valor < smallest_elem(stack_a))
 		sort_for_elem(stack_a);
 	else
 	{
@@ -58,7 +59,7 @@ int	get_pos(t_list **stack_a, t_list **stack_b)
 			i++;
 			if ((*stack_b)->valor > element->valor
 				&& (*stack_b)->valor < element->next->valor)
-					return (i);
+				return (i);
 			element = element->next;
 		}
 	}
@@ -85,7 +86,7 @@ int	smallest_elem(t_list **stack)
 {
 	t_list	*min;
 	t_list	*element;
-	
+
 	min = *stack;
 	element = (*stack)->next;
 	while (element)

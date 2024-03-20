@@ -26,7 +26,7 @@ int	reverse(t_list **stack)
 		if (pen->next->next == NULL)
 		{
 			pen->next = NULL;
-			break;
+			break ;
 		}
 		pen = pen->next;
 	}
@@ -51,7 +51,7 @@ int	rrb(t_list **stack_b)
 	return (0);
 }
 
-int rrr(t_list **stack_a, t_list **stack_b)
+int	rrr(t_list **stack_a, t_list **stack_b)
 {
 	if (reverse(stack_a) == -1 || reverse(stack_b))
 		return (-1);

@@ -34,7 +34,7 @@ void	sort_three(t_list **stack_a)
 	element1 = element->valor;
 	element2 = element->next->valor;
 	element3 = element->next->next->valor;
-	if (element1 > element2 && element2 < element3 && element1 < element3) 
+	if (element1 > element2 && element2 < element3 && element1 < element3)
 		sa(stack_a);
 	if (element1 > element2 && element2 > element3)
 	{

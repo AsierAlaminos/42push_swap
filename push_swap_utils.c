@@ -38,7 +38,7 @@ long int	ft_atoi(const char *str)
 
 int	is_sort(t_list **stack)
 {
-	t_list *element;
+	t_list	*element;
 
 	element = *stack;
 	while (element->next != NULL)

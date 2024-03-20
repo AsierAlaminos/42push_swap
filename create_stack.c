@@ -28,27 +28,15 @@ t_list	**create_stack_a(int argc, char **argv, t_list **sb)
 	while (i < argc)
 	{
 		arg = ft_split(argv[i], ' ');
-		if (check_errors(arg, i) == -1)
+		if (check_errors(arg, 0) == -1)
 			close_program(NULL, sb);
 		j = 0;
 		while (arg[j] != NULL)
 			ft_lstadd_back(stack, ft_lstnew(ft_atoi(arg[j++])));
 		i++;
 	}
-	/*if (argc == 2)
-	{
-		numbers = ft_split(argv[1], ' ');
-		--i;
-		argc = arg_lenght(numbers);
-	}
-	if (check_errors(numbers, i) == -1 || check_numbers(numbers, i) == -1)
-	{
-		free_stack(sb);
-		close_program(NULL, sb);
-	}
-	*stack = ft_lstnew(ft_atoi(numbers[i++]));
-	while (i < argc)
-		ft_lstadd_back(stack, ft_lstnew(ft_atoi(numbers[i++])));*/
+	if (check_numbers(stack) == -1)
+		close_program(stack, sb);
 	return (stack);
 }
 
@@ -64,9 +52,8 @@ int	check_errors(char **nums, int i)
 			if ((nums[i][j] < '0' || nums[i][j] > '9') && nums[i][j] != ' '
 				&& nums[i][j] != '-')
 				return (-1);
-			if ((nums[i][j] == '-' && nums[i][j + 1] == '-')
-				|| (nums[i][j] == '-'
-				&& (nums[i][j] < '0' || nums[i][j] > '9')))
+			if (nums[i][j] == '-'
+				&& (nums[i][j + 1] < '0' || nums[i][j + 1] > '9'))
 				return (-1);
 			++j;
 		}
@@ -75,22 +62,24 @@ int	check_errors(char **nums, int i)
 	return (0);
 }
 
-int	check_numbers(char **nums, int i)
+int	check_numbers(t_list **nums)
 {
-	int	j;
+	t_list	*element;
+	t_list	*tmpelem;
 
-	while (nums[i] != NULL)
+	element = *nums;
+	while (element != NULL)
 	{
-		if (ft_atoi(nums[i]) < -2147483648 || ft_atoi(nums[i]) > 2147483647)
+		if (element->valor < -2147483648 || element->valor > 2147483647)
 			return (-1);
-		j = i + 1;
-		while (nums[j] != NULL)
+		tmpelem = element->next;
+		while (tmpelem != NULL)
 		{
-			if (ft_atoi(nums[i]) - ft_atoi(nums[j]) == 0)
+			if (tmpelem->valor == element->valor)
 				return (-1);
-			j++;
+			tmpelem = tmpelem->next;
 		}
-		i++;
+		element = element->next;
 	}
 	return (0);
 }
