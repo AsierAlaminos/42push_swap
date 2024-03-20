@@ -13,6 +13,7 @@
 #include "pushswap.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 void	print_list(t_list **stack_a, t_list **stack_b)
 {

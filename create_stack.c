@@ -17,12 +17,10 @@
 t_list	**create_stack_a(int argc, char **argv, t_list **sb)
 {
 	t_list	**stack;
-	char	**numbers;
 	int		i;
 	int		j;
 	char	**arg;
 
-	numbers = argv;
 	i = 1;
 	stack = (t_list **)malloc(sizeof(t_list *));
 	while (i < argc)
@@ -34,6 +32,7 @@ t_list	**create_stack_a(int argc, char **argv, t_list **sb)
 		while (arg[j] != NULL)
 			ft_lstadd_back(stack, ft_lstnew(ft_atoi(arg[j++])));
 		i++;
+		free(arg);
 	}
 	if (check_numbers(stack) == -1)
 		close_program(stack, sb);
