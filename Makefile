@@ -31,9 +31,6 @@ $(NAME): $(OBJS)
 clean:
 	rm -f $(OBJS)
 
-sanitize: fclean
-	cc $(CCFLAGS) $(FSANITIZE) $(FILES) -o $(NAME)
-	
 fclean: clean
 	rm -f $(NAME)
 
