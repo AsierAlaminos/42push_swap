@@ -68,7 +68,7 @@ int	main(int argc, char **argv)
 	t_list	**stack_b;
 
 	if (argc <= 1)
-		close_program(NULL, NULL);
+		exit(1);
 	stack_b = (t_list **)malloc(sizeof(t_list *));
 	stack_a = create_stack_a(argc, argv, stack_b);
 	sort_list(stack_a);

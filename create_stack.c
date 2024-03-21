@@ -25,13 +25,15 @@ t_list	**create_stack_a(int argc, char **argv, t_list **sb)
 	stack = (t_list **)malloc(sizeof(t_list *));
 	while (i < argc)
 	{
-		arg = ft_split(argv[i], ' ');
+		arg = ft_split(argv[i++], ' ');
 		if (check_errors(arg, 0) == -1)
+		{
+			free(arg);
 			close_program(NULL, sb);
+		}
 		j = 0;
 		while (arg[j] != NULL)
 			ft_lstadd_back(stack, ft_lstnew(ft_atoi(arg[j++])));
-		i++;
 		free(arg);
 	}
 	if (check_numbers(stack) == -1)
