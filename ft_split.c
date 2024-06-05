@@ -6,7 +6,7 @@
 /*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 18:15:28 by asmus37           #+#    #+#             */
-/*   Updated: 2024/02/11 18:05:10 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/06/05 14:30:02 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ char	**liberar(char **arr, int arr_len)
 	while (i < arr_len)
 	{
 		free(arr[i]);
+		i++;
 	}
 	free(arr);
 	return (NULL);
@@ -83,7 +84,9 @@ char	**add_str(char const *s, char **arr, int arr_len, char c)
 		arr[i][j] = '\0';
 		++i;
 	}
-	arr[i] = 0;
+	if (i == 0)
+		return (liberar(arr, i));
+	arr[i] = NULL;
 	return (arr);
 }
 

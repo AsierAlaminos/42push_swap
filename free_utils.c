@@ -6,7 +6,7 @@
 /*   By: aalamino <aalamino@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 10:56:28 by aalamino          #+#    #+#             */
-/*   Updated: 2024/03/14 10:56:29 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/06/05 13:32:45 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	free_stack(t_list **stack)
 		*stack = next;
 	}
 	*stack = NULL;
+	free(stack);
 }
 
 void	free_numbers(char **numbers, int len)

@@ -6,7 +6,7 @@
 /*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:15:47 by aalamino          #+#    #+#             */
-/*   Updated: 2024/03/11 19:38:01 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/06/05 14:29:34 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,19 @@ t_list	**create_stack_a(int argc, char **argv, t_list **sb)
 
 	i = 1;
 	stack = (t_list **)malloc(sizeof(t_list *));
+	*stack = NULL;
 	while (i < argc)
 	{
 		arg = ft_split(argv[i++], ' ');
 		if (check_errors(arg, 0) == -1)
 		{
-			free(arg);
+			liberar(arg, 1);
 			close_program(NULL, sb);
 		}
 		j = 0;
 		while (arg[j] != NULL)
 			ft_lstadd_back(stack, ft_lstnew(ft_atoi(arg[j++])));
-		free(arg);
+		liberar(arg, 1);
 	}
 	if (check_numbers(stack) == -1)
 		close_program(stack, sb);

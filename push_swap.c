@@ -6,7 +6,7 @@
 /*   By: aalamino <aalamino@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:57:11 by aalamino          #+#    #+#             */
-/*   Updated: 2024/03/11 19:10:33 by aalamino         ###   ########.fr       */
+/*   Updated: 2024/06/05 13:28:13 by aalamino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	main(int argc, char **argv)
 	if (argc <= 1)
 		exit(1);
 	stack_b = (t_list **)malloc(sizeof(t_list *));
+	*stack_b = NULL;
 	stack_a = create_stack_a(argc, argv, stack_b);
 	sort_list(stack_a);
 	choose_sort(argc, stack_a, stack_b);
