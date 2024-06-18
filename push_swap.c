@@ -72,8 +72,11 @@ int	main(int argc, char **argv)
 	stack_b = (t_list **)malloc(sizeof(t_list *));
 	*stack_b = NULL;
 	stack_a = create_stack_a(argc, argv, stack_b);
-	sort_list(stack_a);
-	choose_sort(argc, stack_a, stack_b);
+	if (is_sort(stack_a) == -1)
+	{
+		sort_list(stack_a);
+		choose_sort(argc, stack_a, stack_b);
+	}
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
